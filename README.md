@@ -2,6 +2,8 @@
 
 ![image](./demo/demo.gif)
 
+Please put excel files like [this](./data/テスト１.xlsx) under `$HOME/ASQ`.
+
 ## Dependencies
 
 - https://www.electronjs.org/

@@ -53,17 +53,23 @@ function parseQuizRows(rows) {
 
     let ja = quiz.ja.split(",");
     let en = quiz.en.split(",");
+    let de = quiz.default.split(",")
 
     if (ja.length != en.length) throw new Error("ja.length != en.length");
+    if (ja.length != de.length) throw new Error("ja.length != de.length");
 
     let block_num = ja.length;
     let blocks = [];
     for (let b_i = 0; b_i < block_num; b_i++) {
       let b = {};
       b["ja"] = ja[b_i].split("");
-      b["en"] = en[b_i].split("").map((c) => {
+      en_list = [...en[b_i]];
+      de_list = [...de[b_i]];
+      if (en_list.length != de_list.length) throw new Error("en_list.length != de_list.length");
+      b["en"] = en_list.map((c, i) => {
         return {
-          text: c
+          text: c,
+          input: de_list[i]
         }
       });
       blocks.push(b);

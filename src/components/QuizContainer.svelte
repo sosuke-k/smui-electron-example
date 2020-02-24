@@ -36,7 +36,7 @@
   $: next = quiz.idx >= (num - 1) ? "終わり" : "次の問題"
 
   onMount(async () => {
-    candidates = createCandidates(quiz.blocks);
+    candidates = createCandidates(quiz.candidate);
   });
 
   function onCandidateClicked(e) {

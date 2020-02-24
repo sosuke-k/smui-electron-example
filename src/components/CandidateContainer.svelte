@@ -13,14 +13,15 @@
     return array;
   }
 
-  export function createCandidates(blocks) {
-    let cans = [];
-    for (let b of blocks) {
-      for (let e of b.en) {
-        cans.push(e.text);
+  export function createCandidates(candidate_csv_string) {
+    let cans = candidate_csv_string.split(",");
+    cans = cans.map((c) => {
+      if (c == "?") {
+        return randomAlphabet();
+      } else {
+        return c;
       }
-    }
-    cans.push(randomAlphabet());
+    })
     return shuffle(cans);
   }
 </script>
